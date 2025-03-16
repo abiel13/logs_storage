@@ -19,3 +19,22 @@ export const fetchlogs =  (start:number = 0 ):any => {
         console.log(error)
     }
 }
+
+export const fetchOneByTitle = (title:string):any => {
+    try {
+        const res = logs.find((log) => log.title === title)
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+
+export const fetchLogsByTitle = (title:string):any => {
+    try {
+        const res = logs.filter((log) => log.title.includes(title))
+        return res
+    } catch (error) {
+        console.log(error)
+    }
+}
