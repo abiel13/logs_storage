@@ -38,3 +38,8 @@ export const fetchLogsByTitle = (title:string):any => {
         console.log(error)
     }
 }
+
+
+
+export const fetchlogsOrAiResourcees = ( type:string):any => { 
+}
