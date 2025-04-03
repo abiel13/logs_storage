@@ -54,10 +54,10 @@ export const SearchlogsOrNet = async (question: string): Promise<any> => {
     console.log(res)
     if (res.length) {
   
-      if (res.length == 1 && res.length < 1 ) {
+      if (res.length == 1  ) {
         console.log(res[0]);
         return res[0].solution;
-      } else {
+      } else if (res.length >1 ) {
         return "Redirect";
       }
     } else {
