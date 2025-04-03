@@ -11,9 +11,12 @@ const SearchPage = () => {
 
 
   useEffect(() => {
-    const logs = fetchlogs(count);
+(   async function () {  const logs = await fetchlogs(count);
     console.log(logs);
-    setdata(logs);
+    setdata(logs);}
+  
+  
+  )()
   }, [count]);
 
   return (

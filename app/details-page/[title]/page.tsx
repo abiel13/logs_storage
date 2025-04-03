@@ -3,32 +3,32 @@ import { fetchOneByTitle } from "@/lib/actions/logs.actions";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const DetailsPage =  ({
+const DetailsPage = ({
   params,
 }: {
   params: {
     title: string;
   };
 }) => {
-    const {title} = useParams()
+  const { title } = useParams();
   const [data, setdata] = useState<any>({});
 
   const decodedTitle = decodeURIComponent(title as string);
 
   useEffect(() => {
-    const logs = fetchOneByTitle(decodedTitle);
-    setdata(logs);
-    console.log(logs);
+    (async function () {
+      const logs = await fetchOneByTitle(decodedTitle);
+      setdata(logs);
+    
+    })();
   }, []);
 
   return (
     <div className="flex flex-col items-center gap-4">
-      <h1 className="font-bold text-3xl">Details Page</h1>
+      <h1 className="font-bold text-3xl">Log Page</h1>
       <h1 className=" text-gray-400 text-xl ">{decodedTitle}</h1>
 
-      <p>
-        {data?.solution}
-      </p>
+      <p className="text-black">{data?.solution}</p>
     </div>
   );
 };

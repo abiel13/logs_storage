@@ -1,11 +1,16 @@
 'use server';
 
-const ai = new GoogleGenAI({ apiKey: "YOUR_API_KEY" });
+import { GoogleGenAI } from "@google/genai";
 
-export async function newchat() {
+const apikey = process.env.APIKEY as string;
+
+
+const ai = new GoogleGenAI({ apiKey: apikey });
+
+export async function newchat(prompt:string) {
   const response = await ai.models.generateContent({
     model: "gemini-2.0-flash",
-    contents: "Explain how AI works",
+    contents:`explain in detail ${prompt}`,
   });
-  console.log(response.text);
+  return response.text
 }
