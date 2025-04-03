@@ -50,10 +50,11 @@ export const fetchLogsByTitle = async (
 
 export const SearchlogsOrNet = async (question: string): Promise<any> => {
   try {
-    const res = logs.filter((log) => log.title.includes(question));
-    if (res) {
+    const res = logs.filter((log) => log.title.toLocaleLowerCase().includes(question.toLocaleLowerCase()));
+    console.log(res)
+    if (res.length) {
   
-      if (res.length == 1) {
+      if (res.length == 1 && res.length < 1 ) {
         console.log(res[0]);
         return res[0].solution;
       } else {
