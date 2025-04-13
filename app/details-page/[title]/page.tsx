@@ -3,13 +3,8 @@ import { fetchOneByTitle } from "@/lib/actions/logs.actions";
 import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
-const DetailsPage = ({
-  params,
-}: {
-  params: {
-    title: string;
-  };
-}) => {
+const DetailsPage = (
+) => {
   const { title } = useParams();
   const [data, setdata] = useState<any>({});
 
