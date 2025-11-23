@@ -29,14 +29,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen bg-[#31916c] px-4 py-4 relative flex gap-2 `}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen text-slate-100 relative overflow-x-hidden`}
       >
-        <Sidebar />
-        <main className="bg-white h-[96vh] overflow-y-auto flex-1 rounded-2xl flex flex-col gap-8 items-center p-4">
-          <SearchBar />
-             {children} 
-        </main>
-    
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(99,102,241,0.08),transparent_55%)]" />
+        <div className="relative z-10 flex flex-col lg:flex-row gap-6 w-full max-w-7xl mx-auto px-4 py-6 lg:py-10">
+          <Sidebar />
+          <main className="glass-panel flex-1 rounded-[32px] px-5 py-6 md:px-10 md:py-10 flex flex-col gap-10 overflow-hidden">
+            <SearchBar />
+            <section className="flex-1 w-full overflow-y-auto pr-1">{children}</section>
+          </main>
+        </div>
       </body>
     </html>
   );
