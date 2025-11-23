@@ -27,7 +27,7 @@ const DetailsPage = () => {
     };
   }, [decodedTitle]);
 
-  const paragraphs = useMemo(
+  const paragraphs = useMemo<string[]>(
     () => data?.solution?.split("\n\n").filter(Boolean) ?? [],
     [data?.solution]
   );
